@@ -1,0 +1,38 @@
+.btn {
+    &__long {
+        background-color: #fff;
+        border-radius: 30px;
+        padding: 25px 50px;
+        border: none;
+        cursor: pointer;
+        font-size: 32px;
+        color: #F56363;
+        width: 450px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: .2s;
+
+        &:active {
+            scale: 0.95;
+        }
+    }
+
+    &__short {
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.20);
+        padding: 27px;
+        border: none;
+        cursor: pointer;
+        font-size: 32px;
+        color: #F56363;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: .2s;
+
+        &:active {
+            scale: 0.9;
+        }
+    }
+}

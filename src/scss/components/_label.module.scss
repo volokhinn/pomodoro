@@ -1,0 +1,16 @@
+.label {
+    color: #fff;
+    font-size: 34px;
+    font-weight: 500;
+    padding: 25px 50px;
+    border-radius: 33.968px;
+    background: rgba(255, 255, 255, 0.20);
+    width: fit-content;
+}
+
+.btn {
+    &__white {
+        background: #000 !important;
+        color: #fff !important;
+    }
+}
