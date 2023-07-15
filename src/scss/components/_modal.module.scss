@@ -1,0 +1,158 @@
+.wrapper {
+    border-radius: 125px;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(43px);
+    padding: 45px;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        z-index: -1;
+        top: 30%;
+        left: 30%;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        animation: bg 0.2s both linear;
+    }
+
+    &__settings {
+        border-radius: 125px;
+        background: rgba(255, 255, 255, 0.28);
+        backdrop-filter: blur(43px);
+        padding: 50px;
+        position: absolute;
+        height: 85vh;
+        width: 30vw;
+        top: 30px;
+        left: 50%;
+        overflow: hidden;
+    }
+}
+
+.top__row {
+    border-radius: 125px;
+    width: 50%;
+    height: 10px;
+    background: #FFF;
+    margin: 0 auto;
+}
+
+.label {
+    margin: 30px 0;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.20);
+    width: fit-content;
+    padding: 15px;
+
+    font-size: 24px;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+
+    &__dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: #fff;
+        margin-right: 15px;
+    }
+}
+
+.title {
+    font-size: 100px;
+    font-weight: 500;
+    letter-spacing: -9.5px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    line-height: 100px;
+}
+
+@keyframes bg {
+    0% {
+        transform: translate(50%, 100%);
+    }
+
+    100% {
+        transform: translate(-10%, -10%);
+    }
+}
+
+.settings {
+    &__title {
+        font-size: 64px;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-top: 30px;
+    }
+
+    &__label {
+        font-size: 42px;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin: 20px 0;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    &__sound {
+        border-radius: 10px;
+        background: #FFF;
+        border: none;
+        padding: 15px 30px;
+        cursor: pointer;
+
+        & img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    &__time {
+        color: #F56363;
+        font-size: 24px;
+        padding: 15px 25px;
+        border-radius: 10px;
+        background: #FFF;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__input {
+        appearance: none;
+    }
+}
+
+.fighter {
+
+    &__row {
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.28);
+        backdrop-filter: blur(15px);
+        padding: 30px;
+
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        &_item {
+            border-radius: 20px;
+            background: #FFF;
+            padding: 15px;
+            cursor: pointer;
+        }
+        
+        &_img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+}

@@ -1,26 +1,48 @@
 $red: #F56363;
 
+::selection {
+    background: #fff;
+    color: $red;
+}
+
+::-moz-selection {
+    background: #fff;
+    color: $red;
+}
+
 body {
     background-color: $red;
     font-family: Inter;
     font-weight: 400;
-    
+    color: #fff;
 }
 
 .container {
     margin: 30px 60px;
 }
 
-.content__left {
-    width: 50%;
-    z-index: 10;
+.content {
+    display: flex;
+    justify-content: space-between;
+    
+
+    &__left {
+        width: 50%;
+    }
+
+    &__right {
+        width: 50%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
 }
 
 .bg {
     &__img {
         position: fixed;
-        z-index: 3;
-        animation: move 300s infinite;
+        z-index: -1;
+        animation: move 300s infinite linear;
         pointer-events: none;
     }
 }
@@ -52,6 +74,78 @@ h1 {
     height: 30px;
 }
 
+.work {
+    padding: 25px 50px;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    border-radius: 33px;
+    background: rgba(255, 255, 255, 0.20);
+
+    margin-top: 140px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: fit-content;
+
+    &__dot {
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        border-radius: 100%;
+        margin-right: 15px;
+        animation: fade 1s infinite linear;
+    }
+}
+
+.timer {
+    &__row {
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 15px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+
+.timer25min {
+    animation: timer 1500s both linear;
+}
+
+.timer45min {
+    animation: timer 2700s both linear;
+}
+
+.timer60min {
+    animation: timer 3600s both linear;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 @keyframes move {
     0% {
@@ -136,5 +230,15 @@ h1 {
 
     100% {
         transform: translate(-20%, -100%) scale(1) rotate(0deg);
+    }
+}
+
+@keyframes timer {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
     }
 }
