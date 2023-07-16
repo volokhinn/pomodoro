@@ -90,6 +90,8 @@ h1 {
 
     width: fit-content;
 
+    backdrop-filter: blur(30px);
+
     &__dot {
         width: 10px;
         height: 10px;
@@ -124,6 +126,40 @@ h1 {
 .timer60min {
     animation: timer 3600s both linear;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    &__counter {
+        border: none;
+        border-radius: 29.246px;
+        background: rgba(255, 255, 255, 0.20);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+
+        color: #fff;
+        font-size: 24px;
+
+        cursor: pointer;
+        gap: 10px;
+
+        transition: .2s;
+
+        & img {
+            width: 30px;
+            height: 30px;
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+}
+
 
 @keyframes fade {
     0% {

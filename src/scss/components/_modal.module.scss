@@ -29,6 +29,20 @@
         top: 30px;
         left: 50%;
         overflow: hidden;
+        z-index: 999;
+    }
+
+    &__stats {
+        border-radius: 125px;
+        background: rgba(255, 255, 255, 0.28);
+        backdrop-filter: blur(43px);
+        padding: 50px;
+        position: absolute;
+        width: 30vw;
+        top: 30px;
+        left: 50%;
+        overflow: hidden;
+        z-index: 99;
     }
 }
 
@@ -155,4 +169,32 @@
         }
     }
 
+}
+
+.stats {
+    &__row {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        background-color: #FFF;
+        padding: 20px;
+        border-radius: 30px;
+        color: #F56363;
+        font-size: 32px;
+
+        pointer-events: none;
+
+        & img {
+            width: 60px;
+            height: 60px;
+        }
+    }
 }

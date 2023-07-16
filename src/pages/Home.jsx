@@ -13,38 +13,37 @@ import settings from '../assets/svg/settings.svg';
 import play from '../assets/svg/play.svg';
 import stop from '../assets/svg/stop.svg';
 import Break from '../components/Break,';
+import ModalStats from '../components/ModalStats';
 
-import { selectTimerData } from '../redux/slices/timerSlice';
+import { selectTimerData, setTimer } from '../redux/slices/timerSlice';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Home = () => {
-  const [timer, setTimer] = React.useState('unActive');
   const [isActiveSettings, setIsActiveSettings] = React.useState(false);
+  const [isActiveStats, setIsActiveStats] = React.useState(true);
+
+  const dispatch = useDispatch();
 
   const onClickTimer = (isStop = false) => {
-    if (timer === 'active') {
-      const state = isStop ? 'paused' : 'unActive';
-      setTimer(state);
-      return;
-    }
-    return setTimer('active');
+    dispatch(setTimer(isStop));
   };
 
-  const { background, time } = useSelector(selectTimerData);
+  const { background, defaultTime: time, stateTimer } = useSelector(selectTimerData);
 
   return (
     <>
       <img className={styles.bg__img} src={background} alt={background} />
       <div className={styles.content}>
         <div className={styles.content__left}>
-          {timer === 'unActive' ? (
+          {stateTimer === 'unActive' ? (
             <>
               <Main />
               <div className={styles.buttons}>
                 {isActiveSettings ? (
                   <LongButton
                     onClick={() => onClickTimer()}
-                    disabled="true"
+                    disabled={true}
                     style={{ opacity: '0.5' }}>
                     Начать <img className={styles.btn__icon} src={play} alt={play} />
                   </LongButton>
@@ -62,7 +61,7 @@ const Home = () => {
                 Чтобы начать сессию 25 минут, жми <span style={{ color: '#fff' }}>Начать</span>
               </p>
             </>
-          ) : timer === 'active' ? (
+          ) : stateTimer === 'active' ? (
             <>
               <Timer />
               <div className={styles.buttons}>
@@ -82,22 +81,23 @@ const Home = () => {
                 <LongButton onClick={() => onClickTimer()}>
                   Продолжить <img className={styles.btn__icon} src={play} alt={play} />
                 </LongButton>
-                <ShortButton onClick={() => setIsActiveSettings(true)}>
+                {/* <ShortButton onClick={() => setIsActiveSettings(true)}>
                   <img className={styles.btn__icon} src={settings} alt={settings} />
-                </ShortButton>
+                </ShortButton> */}
               </div>
             </>
           )}
         </div>
         <div className={styles.content__right}>
           {isActiveSettings && <ModalSettings closeHandler={() => setIsActiveSettings(false)} />}
+          {isActiveStats && <ModalStats closeHandler={() => setIsActiveStats(false)} />}
         </div>
       </div>
-      {timer === 'active' && time === 1500 ? (
+      {stateTimer === 'active' && time === 1500 ? (
         <div className={`${styles.timer__row} ${styles.timer25min}`}></div>
-      ) : timer === 'active' && time === 2700 ? (
+      ) : stateTimer === 'active' && time === 2700 ? (
         <div className={`${styles.timer__row} ${styles.timer45min}`}></div>
-      ) : timer === 'active' && time === 3600 ? (
+      ) : stateTimer === 'active' && time === 3600 ? (
         <div className={`${styles.timer__row} ${styles.timer60min}`}></div>
       ) : (
         ''

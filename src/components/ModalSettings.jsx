@@ -65,8 +65,6 @@ const ModalSettings = ({ closeHandler }) => {
     closeHandler();
   };
 
-  console.log(settings);
-
   const fightersImg = [tomato, gold, diamond, platinum];
   const fighters = fightersImg.map((fighter) => {
     return (
