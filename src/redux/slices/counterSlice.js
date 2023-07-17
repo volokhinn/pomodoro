@@ -12,13 +12,16 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     setCounter(state, action) {
+        state[action.payload]++;
+    },
+    fetchCounter(state) {
 
     }
   },
 });
 
-export const selectTimerData = (state) => state.counterSlice;
+export const selectCounterData = (state) => state.counterSlice;
 
-export const { changeSettings, fetchTimer, setTimer } = counterSlice.actions;
+export const { setCounter } = counterSlice.actions;
 
 export default counterSlice.reducer;

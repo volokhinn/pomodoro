@@ -6,8 +6,18 @@ import tomato from '../assets/svg/tomato.svg'
 import platinum from '../assets/svg/platinum.svg';
 import diamond from '../assets/svg/diamond.svg';
 import { getDrop } from '../helpers/awards';
+import {selectCounterData, setCounter} from '../redux/slices/counterSlice';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const ModalWin = () => {
+
+  const tomatos = useSelector(selectCounterData);
+
+  const dispatch = useDispatch();
+
+  console.log(tomatos);
+
   const item = getDrop();
   console.log(item);
   const modal = {
@@ -36,6 +46,8 @@ const ModalWin = () => {
 
   modal.title = states[item.id].title;
   modal.bg = states[item.id].bg;
+
+  // dispatch(setCounter(item.id))
   
   return (
     <>
