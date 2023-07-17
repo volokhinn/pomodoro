@@ -43,7 +43,7 @@ const startTimer = (initialTimeInSeconds, callback, endCallback) => {
     } else {
       callback(formattedTime);
 
-      requestAnimationFrame(updateTimer);
+      requestIdleCallback(updateTimer);
     }
   };
 

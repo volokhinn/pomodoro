@@ -7,47 +7,50 @@ import platinum from '../assets/svg/platinum.svg';
 import diamond from '../assets/svg/diamond.svg';
 import { getDrop } from '../helpers/awards';
 import {selectCounterData, setCounter} from '../redux/slices/counterSlice';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+
+const states = {
+  'tomato': {
+    title: 'Обычный',
+    bg: tomato
+  },
+  'gold': {
+    title: 'Золото',
+    bg: gold
+  },
+  'diamond': {
+    title: 'Алмаз',
+    bg: diamond
+  },
+  'platinum': {
+    title: 'Платина',
+    bg: platinum
+  },
+}
 
 const ModalWin = () => {
 
   const tomatos = useSelector(selectCounterData);
+  const [modal, setModal] = useState({title: "", bg: null})
 
   const dispatch = useDispatch();
 
   console.log(tomatos);
 
-  const item = getDrop();
-  console.log(item);
-  const modal = {
-    title: '',
-    bg: null,
-  }
+  useEffect(() => {
+    const item = getDrop();
+    const newModalState = {
+      title: states[item.id].title,
+      bg: states[item.id].bg,
+    }
+    setModal(newModalState);
+    dispatch(setCounter(item.id));
 
-  const states = {
-    'tomato': {
-      title: 'Обычный',
-      bg: tomato
-    },
-    'gold': {
-      title: 'Золото',
-      bg: gold
-    },
-    'diamond': {
-      title: 'Алмаз',
-      bg: diamond
-    },
-    'platinum': {
-      title: 'Платина',
-      bg: platinum
-    },
-  }
+  }, []);
 
-  modal.title = states[item.id].title;
-  modal.bg = states[item.id].bg;
 
-  // dispatch(setCounter(item.id))
+
   
   return (
     <>
