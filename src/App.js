@@ -3,7 +3,7 @@ import styles from './scss/index.module.scss';
 import Header from './Header';
 import { useDispatch } from 'react-redux';
 import { fetchTimer, selectTimerData } from './redux/slices/timerSlice';
-import { setChances, setTime } from './redux/slices/awardsSlice';
+import { setChances, setTime } from './helpers/awards';
 import React from 'react';
 import { useSelector } from 'react-redux';
 

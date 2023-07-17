@@ -5,7 +5,7 @@ import alarm1 from '../../assets/audio/alarm1.mp3';
 const initialState = {
   background: tomato,
   sound: alarm1,
-  defaultTime: 10,
+  defaultTime: 1500,
   defaultBreakTime: 300,
   stateTimer: 'unActive',
 };

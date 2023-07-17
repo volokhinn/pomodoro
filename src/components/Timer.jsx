@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import startTimer from '../helpers/timerUtils';
 import { useDispatch } from 'react-redux';
-import { getDrop } from '../redux/slices/awardsSlice';
 
 const Timer = () => {
   const { defaultTime } = useSelector(selectTimerData);
@@ -22,8 +21,6 @@ const Timer = () => {
     };
 
     const handlerTimeFinished = () => {
-      const item = getDrop();
-      console.log(item);
       dispatch(setTimer(true));
     };
 

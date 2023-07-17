@@ -44,6 +44,13 @@
         overflow: hidden;
         z-index: 99;
     }
+
+    &__win {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        z-index: 998;
+    }
 }
 
 .top__row {

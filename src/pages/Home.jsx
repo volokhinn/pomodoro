@@ -23,6 +23,8 @@ const Home = () => {
   const [isActiveSettings, setIsActiveSettings] = React.useState(false);
   const [isActiveStats, setIsActiveStats] = React.useState(true);
 
+  const {defaultTime} = useSelector(selectTimerData);
+
   const dispatch = useDispatch();
 
   const onClickTimer = (isStop = false) => {
@@ -58,8 +60,9 @@ const Home = () => {
               </div>
 
               <p className={styles.description}>
-                Чтобы начать сессию 25 минут, жми <span style={{ color: '#fff' }}>Начать</span>
+                Чтобы начать сессию {Math.floor(defaultTime / 60)} минут минут, жми <span style={{ color: '#fff' }}>Начать</span>
               </p>
+
             </>
           ) : stateTimer === 'active' ? (
             <>
@@ -85,6 +88,7 @@ const Home = () => {
                   <img className={styles.btn__icon} src={settings} alt={settings} />
                 </ShortButton> */}
               </div>
+              <ModalWin />
             </>
           )}
         </div>
@@ -93,11 +97,11 @@ const Home = () => {
           {isActiveStats && <ModalStats closeHandler={() => setIsActiveStats(false)} />}
         </div>
       </div>
-      {stateTimer === 'active' && time === 1500 ? (
+      {stateTimer === 'active' && defaultTime === 1500 ? (
         <div className={`${styles.timer__row} ${styles.timer25min}`}></div>
-      ) : stateTimer === 'active' && time === 2700 ? (
+      ) : stateTimer === 'active' && defaultTime === 2700 ? (
         <div className={`${styles.timer__row} ${styles.timer45min}`}></div>
-      ) : stateTimer === 'active' && time === 3600 ? (
+      ) : stateTimer === 'active' && defaultTime === 3600 ? (
         <div className={`${styles.timer__row} ${styles.timer60min}`}></div>
       ) : (
         ''
