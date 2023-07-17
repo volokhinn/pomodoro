@@ -6,12 +6,12 @@ import gold from '../assets/svg/gold.svg';
 import diamond from '../assets/svg/diamond.svg';
 import platinum from '../assets/svg/platinum.svg';
 
-import {selectCounterData} from '../redux/slices/counterSlice';
+import { selectCounterData } from '../redux/slices/counterSlice';
 import { useSelector } from 'react-redux';
 
 const ModalStats = ({ closeHandler }) => {
-
-  const tomatos = useSelector(selectCounterData)
+  const tomatos = useSelector(selectCounterData);
+  console.log(tomatos);
 
   const onClickExit = () => {
     closeHandler();
@@ -22,7 +22,9 @@ const ModalStats = ({ closeHandler }) => {
         <div className={styles.top__row}></div>
         <div className={styles.label}>
           <div className={styles.label__dot}></div>
-          <div className={styles.label__text}>36 pomidorok</div>
+          <div className={styles.label__text}>
+            {tomatos.tomato + tomatos.gold + tomatos.diamond + tomatos.platinum} помидорок
+          </div>
         </div>
         <div className={styles.stats__row}>
           <div className={styles.stats__item}>

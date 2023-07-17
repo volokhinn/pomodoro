@@ -21,9 +21,9 @@ import { useDispatch } from 'react-redux';
 
 const Home = () => {
   const [isActiveSettings, setIsActiveSettings] = React.useState(false);
-  const [isActiveStats, setIsActiveStats] = React.useState(true);
+  const [isActiveStats, setIsActiveStats] = React.useState(false);
 
-  const {defaultTime} = useSelector(selectTimerData);
+  const { defaultTime } = useSelector(selectTimerData);
 
   const dispatch = useDispatch();
 
@@ -60,9 +60,9 @@ const Home = () => {
               </div>
 
               <p className={styles.description}>
-                Чтобы начать сессию {Math.floor(defaultTime / 60)} минут минут, жми <span style={{ color: '#fff' }}>Начать</span>
+                Чтобы начать сессию {Math.floor(defaultTime / 60)} минут минут, жми{' '}
+                <span style={{ color: '#fff' }}>Начать</span>
               </p>
-
             </>
           ) : stateTimer === 'active' ? (
             <>
