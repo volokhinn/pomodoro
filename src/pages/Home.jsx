@@ -13,7 +13,6 @@ import settings from '../assets/svg/settings.svg';
 import play from '../assets/svg/play.svg';
 import stop from '../assets/svg/stop.svg';
 import Break from '../components/Break,';
-import Stats from '../components/Stats';
 import Modal from '../components/Modal';
 
 import { selectTimerData, setTimer } from '../redux/slices/timerSlice';
@@ -21,8 +20,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 const Home = () => {
-  const [winActive, setWinActive] = React.useState(false);
-  const [statsActive, setStatsActive] = React.useState(false);
+  const [winActive, setWinActive] = React.useState(true);
   const [settingsActive, setSettingsActive] = React.useState(false);
 
   const { defaultTime } = useSelector(selectTimerData);
@@ -84,16 +82,25 @@ const Home = () => {
               <Break />
               <div className={styles.buttons}>
                 <LongButton onClick={() => onClickTimer()}>
-                  Продолжить <img className={styles.btn__icon} src={play} alt={play} />
+                  Начать <img className={styles.btn__icon} src={play} alt={play} />
                 </LongButton>
               </div>
-              <Modal active={winActive} setActive={setWinActive}><Win /></Modal>
+
+              {winActive && (
+                <Modal active={winActive} setActive={setWinActive}>
+                  <Win />
+                </Modal>
+              )}
             </>
           )}
         </div>
-          {settingsActive && <Modal active={settingsActive} setActive={setSettingsActive}><><Settings /></></Modal>}
-          {statsActive && <Modal active={statsActive} setActive={setStatsActive}><Stats /></Modal>}
-
+        {settingsActive && (
+          <Modal active={settingsActive} setActive={setSettingsActive}>
+            <>
+              <Settings />
+            </>
+          </Modal>
+        )}
       </div>
       {stateTimer === 'active' && defaultTime === 1500 ? (
         <div className={`${styles.timer__row} ${styles.timer25min}`}></div>

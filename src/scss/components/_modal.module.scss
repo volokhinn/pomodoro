@@ -1,7 +1,5 @@
 .wrapper {
     border-radius: 125px;
-    background: rgba(255, 255, 255, 0.28);
-    backdrop-filter: blur(43px);
     padding: 45px;
     width: fit-content;
     position: relative;
@@ -178,8 +176,8 @@
         height: 100vh;
         width: 100vw;
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 0%;
+        left: 20%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -194,5 +192,6 @@
         background: rgba(255, 255, 255, 0.28);
         backdrop-filter: blur(43px);
         padding: 50px;
+        overflow: hidden;
     }
 }
