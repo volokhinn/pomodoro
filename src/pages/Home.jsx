@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../scss/index.module.scss';
-import ModalWin from '../components/ModalWin';
-import ModalSettings from '../components/ModalSettings';
+import Win from '../components/Win';
+import Settings from '../components/Settings';
 import '../scss/components/styles.css';
 import Main from '../components/Main';
 import Timer from '../components/Timer';
@@ -13,15 +13,17 @@ import settings from '../assets/svg/settings.svg';
 import play from '../assets/svg/play.svg';
 import stop from '../assets/svg/stop.svg';
 import Break from '../components/Break,';
-import ModalStats from '../components/ModalStats';
+import Stats from '../components/Stats';
+import Modal from '../components/Modal';
 
 import { selectTimerData, setTimer } from '../redux/slices/timerSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 const Home = () => {
-  const [isActiveSettings, setIsActiveSettings] = React.useState(false);
-  const [isActiveStats, setIsActiveStats] = React.useState(false);
+  const [winActive, setWinActive] = React.useState(false);
+  const [statsActive, setStatsActive] = React.useState(false);
+  const [settingsActive, setSettingsActive] = React.useState(false);
 
   const { defaultTime } = useSelector(selectTimerData);
 
@@ -42,7 +44,7 @@ const Home = () => {
             <>
               <Main />
               <div className={styles.buttons}>
-                {isActiveSettings ? (
+                {settingsActive ? (
                   <LongButton
                     onClick={() => onClickTimer()}
                     disabled={true}
@@ -54,7 +56,7 @@ const Home = () => {
                     Начать <img className={styles.btn__icon} src={play} alt={play} />
                   </LongButton>
                 )}
-                <ShortButton onClick={() => setIsActiveSettings(true)}>
+                <ShortButton onClick={() => setSettingsActive(true)}>
                   <img className={styles.btn__icon} src={settings} alt={settings} />
                 </ShortButton>
               </div>
@@ -84,18 +86,14 @@ const Home = () => {
                 <LongButton onClick={() => onClickTimer()}>
                   Продолжить <img className={styles.btn__icon} src={play} alt={play} />
                 </LongButton>
-                {/* <ShortButton onClick={() => setIsActiveSettings(true)}>
-                  <img className={styles.btn__icon} src={settings} alt={settings} />
-                </ShortButton> */}
               </div>
-              <ModalWin />
+              <Modal active={winActive} setActive={setWinActive}><Win /></Modal>
             </>
           )}
         </div>
-        <div className={styles.content__right}>
-          {isActiveSettings && <ModalSettings closeHandler={() => setIsActiveSettings(false)} />}
-          {isActiveStats && <ModalStats closeHandler={() => setIsActiveStats(false)} />}
-        </div>
+          {settingsActive && <Modal active={settingsActive} setActive={setSettingsActive}><><Settings /></></Modal>}
+          {statsActive && <Modal active={statsActive} setActive={setStatsActive}><Stats /></Modal>}
+
       </div>
       {stateTimer === 'active' && defaultTime === 1500 ? (
         <div className={`${styles.timer__row} ${styles.timer25min}`}></div>

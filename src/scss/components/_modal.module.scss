@@ -17,40 +17,6 @@
         height: 100%;
         animation: bg 0.2s both linear;
     }
-
-    &__settings {
-        border-radius: 125px;
-        background: rgba(255, 255, 255, 0.28);
-        backdrop-filter: blur(43px);
-        padding: 50px;
-        position: absolute;
-        height: 85vh;
-        width: 30vw;
-        top: 30px;
-        left: 50%;
-        overflow: hidden;
-        z-index: 999;
-    }
-
-    &__stats {
-        border-radius: 125px;
-        background: rgba(255, 255, 255, 0.28);
-        backdrop-filter: blur(43px);
-        padding: 50px;
-        position: absolute;
-        width: 30vw;
-        top: 30px;
-        left: 50%;
-        overflow: hidden;
-        z-index: 99;
-    }
-
-    &__win {
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        z-index: 998;
-    }
 }
 
 .top__row {
@@ -144,6 +110,7 @@
         background: #FFF;
         border: none;
         cursor: pointer;
+        margin-bottom: 60px;
     }
 
     &__input {
@@ -203,5 +170,29 @@
             width: 60px;
             height: 60px;
         }
+    }
+}
+
+.modal {
+    &__wrap {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+        border-radius: 125px;
+        background: rgba(255, 255, 255, 0.28);
+        backdrop-filter: blur(43px);
+        padding: 50px;
     }
 }
