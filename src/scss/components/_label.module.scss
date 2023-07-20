@@ -8,9 +8,18 @@
     width: fit-content;
 }
 
-.btn {
-    &__white {
-        background: #000 !important;
-        color: #fff !important;
+// .btn {
+//     &__white {
+//         background: #000 !important;
+//         color: #fff !important;
+//     }
+// }
+
+@media (max-width: 768px) {
+    .label {
+        font-size: 20px;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
     }
 }

@@ -36,3 +36,41 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .btn {
+        &__long {
+            font-size: 18px;
+            width: 100%;
+            padding: 20px 30px;
+
+            & img {
+                width: 20px;
+            }
+        }
+
+        &__short {
+            font-size: 18px;
+            padding: 20px;
+
+            & img {
+                width: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 440px) {
+    .btn {
+        &__long {
+            font-size: 18px;
+            width: 100%;
+            padding: 15px 25px;
+        }
+
+        &__short {
+            font-size: 18px;
+            padding: 15px;
+        }
+    }
+}

@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../scss/index.module.scss";
 import Win from "../components/Win";
 import Settings from "../components/Settings";
-import "../scss/components/styles.css";
 import Main from "../components/Main";
 import Timer from "../components/Timer";
 

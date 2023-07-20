@@ -24,18 +24,6 @@ body {
 .content {
     display: flex;
     justify-content: space-between;
-    
-
-    &__left {
-        width: 50%;
-    }
-
-    &__right {
-        width: 50%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-    }
 }
 
 .bg {
@@ -133,7 +121,7 @@ h1 {
 
     &__counter {
         border: none;
-        border-radius: 29.246px;
+        border-radius: 30px;
         background: rgba(255, 255, 255, 0.20);
         display: flex;
         justify-content: center;
@@ -160,6 +148,49 @@ h1 {
     }
 }
 
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 120px;
+        line-height: 100px;
+    }
+
+    .description {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 86px;
+        line-height: 70px;
+    }
+
+    .description {
+        font-size: 16px;
+    } 
+
+    .container {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 440px) {
+    h1 {
+        font-size: 64px;
+        letter-spacing: -7px;
+    }
+
+    .header {
+        &__counter {
+            font-size: 18px;
+
+            & img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
 
 @keyframes fade {
     0% {
