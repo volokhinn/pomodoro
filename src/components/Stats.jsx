@@ -9,10 +9,14 @@ import { normalizeCount } from '../helpers/normalizeCount';
 
 import { selectCounterData } from '../redux/slices/counterSlice';
 import { useSelector } from 'react-redux';
+import { useMemo } from 'react';
 
 const Stats = () => {
   const tomatos = useSelector(selectCounterData);
-  const countTomatos = tomatos.tomato + tomatos.gold + tomatos.diamond + tomatos.platinum;
+  const countTomatos = useMemo(
+    () => tomatos.tomato + tomatos.gold + tomatos.diamond + tomatos.platinum,
+    [tomatos],
+  );
 
   return (
     <>
